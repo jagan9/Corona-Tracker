@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Corona Tracker || Help-Line</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="11.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="shortcut icon" href="fav(32).png">
+  <link rel="shortcut icon" href="fav(96).png">
+  <link rel="shortcut icon" href="fav(192).png">
+
+<meta name="keywords" content="corona by jagan, coronaweb, coronaweb by jagan, jagan coronaweb, corona, corona virus, corona virus web app">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <style type="text/css">
+  	.red{
+  		color: red;
+  	}
+  	.blue{
+  		color: blue;
+  	}
+  	.green{
+  		color: green;
+  	}
+    #prime{
+      
+      background-image: linear-gradient(#f49a4f,#e83e8c);
+      color: white;
+      margin: 10px;
+      padding:40px 0px;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center mb-0">
+  <h1>CORONA TRACKER</h1>
+  </div>
+	 <div class="navbar navbar-expand-md  navbar-dark 
+  bg-dark justify-content-between">
+    <h1 class="navbar-brand text-danger">Corona</h1>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#mynavbar" >
+      <span class="navbar-toggler-icon " >
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+    <ul class=" navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home  mr-1" ></i>home</a></li>
+      <li class="nav-item"><a class="nav-link" href="cases.html"><i class="fas fa-virus  mr-1" ></i>Covid-cases</a></li>
+      <li class="nav-item"><a class="nav-link active" href="contacts.html"><i class="fa fa-phone-alt mr-1" ></i>Help-line</a></li>
+      <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-fa fa-graduation-cap  mr-1" ></i>State-Data</a></li>
+      
+    </ul>
+    </div>
+  </div>
+
+  <br><br>
+	<div class="container">
+		<div id="prime">
+      <span id ="span" class="spinner-border text-white"></span>
+			<h3 id="num"></h3>
+			<h3 id="num_toll"></h3>
+			
+			<h3 id="fac"></h3><a target="_blank" style="color: #343a40" href="https://www.facebook.com/MoHFWIndia" id="face"></a>
+			<h3 id="twi"></h3><a target="_blank" style="color: #343a40" href="https://www.facebook.com/MoHFWIndia" id="twit"></a>
+      <h3 id="emai"></h3>
+      <a target="_blank" style="color: #343a40" href="https://www.facebook.com/MoHFWIndia" id="email"></a>
+		</div>
+    <br><br>
+    <h1>Help-line Numbers for states in India</h1>
+    <h4 style="height: 3px;width: 22%;background-color: red;"></h4>
+    <br><br>
+    <span style="justify-content: center;display: flex;margin: auto" id="span3" class="spinner-border text-black "></span>
+
+		<table style="visibility: hidden;" class="table table-striped table-hover " id="table11">
+			<tr style="color: white" class="bg-dark">
+				<th>S.No</th>
+				<th>Location</th>
+				<th>Number</th>
+			</tr>
+
+		</table>
+
+	</div>
+
+<br><br><br>
+  <div style="background-color: #f1abff;padding: 15px ;text-align: center;margin-bottom: 10px;" class="footer">
+    <p>All Rights Reserved <i class="fa fa-copyright"></i><br>--Developed by JAGAN--</p>
+  </div>
+
+
+
+
+	
+
+	<script type="text/javascript">
+		window.addEventListener("load",()=>{
+			var prime=document.getElementById('prime');
+			var table=document.getElementById('table11');
+			var num_toll=document.getElementById("num_toll");
+			var num=document.getElementById("num");
+			var email=document.getElementById("email");
+			var emai=document.getElementById("emai");
+			var face=document.getElementById("face");
+			var twit=document.getElementById("twit");
+			var twi=document.getElementById("twi");
+			var fac=document.getElementById("fac");
+
+			fetch('https://api.rootnet.in/covid19-in/contacts')
+        .then((res)=>res.json())
+        .then((res)=>{
+        	console.log(res.data.contacts);
+          document.getElementById("span3").style.display="none";
+          table.style.visibility= "unset";
+          document.getElementById("span").style.display="none";
+        	num.innerHTML="Contact this Number :  "+res.data.contacts.primary.number;
+        	num_toll.innerHTML="Contact this Tollfree-Number : 1075";
+        	emai.innerHTML="Email  :  ";
+        	email.innerHTML=res.data.contacts.primary.email;
+        	fac.innerHTML="Facebook  :  ";
+        	face.innerHTML=res.data.contacts.primary.facebook;
+        	twi.innerHTML="Twitter  :  ";
+        	twit.innerHTML=res.data.contacts.primary.twitter;
+
+        	var t=res.data.contacts.regional;
+        	for(var i=0;i<t.length;i++){
+        		//console.log(t[i].loc);
+        		var row=table.insertRow(i+1);
+        		var cell1=row.insertCell(0);
+        		var cell2=row.insertCell(1);
+        		var cell3=row.insertCell(2);
+
+        		cell1.innerHTML=i+1;
+        		cell2.innerHTML=t[i].loc;
+        		cell3.innerHTML=t[i].number;
+
+        		cell1.classList.add("red");
+        		cell2.classList.add("green");
+        		cell3.classList.add("blue");
+        	}
+        });
+
+
+		});
+	</script>
+</body>
+</html>

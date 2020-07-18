@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Corona Tracker || home</title>
+  <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="11.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="shortcut icon" href="fav(32).png">
+  <link rel="shortcut icon" href="fav(96).png">
+  <link rel="shortcut icon" href="fav(192).png">
+
+<meta name="keywords" content="corona by jagan, coronaweb, coronaweb by jagan, jagan coronaweb, corona, corona virus, corona virus web app">
+  <meta name="google-site-verification" content="9cLMtEJxCPCMP-LkNHcA3WWhvY73oNSnlASDRFcUCSc" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+  <style type="text/css">
+    .blue{
+      color: blue;
+    }
+    .red{
+      color: red;
+    }
+    .orange{
+      color: orange;
+    }
+    .row1{
+      cursor: pointer;
+      margin-left: 0px;
+    }
+    .row1:hover{
+      text-decoration: underline;
+    }
+    #r1,#r2,#r3,#r4{
+    
+      height: 300px;
+      background-image: linear-gradient(#f49a4f,#e83e8c);
+      color: white;
+      margin: 10px;
+      padding:40px 0px;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    #r8,#r9{
+    
+      height: 300px;
+      background-image: linear-gradient(#f49a4f,#e83e8c);
+      color: white;
+      margin: 10px;
+      padding:40px 0px;
+      border-radius: 20px;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container-fluid">
+  <div class="jumbotron text-center mb-0">
+	<h1 style="font-size: 3em;">CORONA TRACKER</h1>
+  </div>
+  <div class="navbar navbar-expand-md  navbar-dark 
+  bg-dark justify-content-between">
+    <h1 class="navbar-brand text-danger">Corona</h1>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#mynavbar" >
+      <span class="navbar-toggler-icon " >
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+    <ul class=" navbar-nav">
+      <li class="nav-item"><a class="nav-link active" href="#"><i class="fa fa-home  mr-1" ></i>Home</a></li>
+      <li class="nav-item"><a class="nav-link" href="cases.html"><i class="fas fa-virus  mr-1" ></i>Covid-cases</a></li>
+      <li class="nav-item"><a class="nav-link" href="contacts.html"><i class="fa fa-phone-alt mr-1" ></i>Help-line</a></li>
+      <li class="nav-item"><a class="nav-link" href="services.html"><i class="fa fa-fa fa-graduation-cap  mr-1" ></i>State-Data</a></li>
+     
+    </ul>
+    </div>
+  </div>
+  <br><br>
+  <h1>About Covid-19</h1>
+  <p>Coronavirus disease (COVID-19) is an infectious disease caused by a newly discovered coronavirus.
+  Coronaviruses are a group of related viruses that cause diseases in mammals and birds. In humans, coronaviruses cause respiratory tract infections that can range from mild to lethal. <br><br>
+Most people who fall sick with COVID-19 will experience mild to moderate symptoms and recover without special treatment.</p>
+  <div>
+    <img class="img img-fluid" src="covid.jpg">
+  </div>
+  <br><br>
+  <div class="container-fluid">
+    <h1 style="text-align: center;">Covid cases in World and India.</h1>
+   <h4 style="height: 3px;width: 22%;background-color: red;margin: auto"></h4>
+   <br>
+    <div class="row justify-content-around">
+      <div id="r1" class="col-12 col-sm-4 ">
+  <h3>World Wide Total Cases : </h3>
+  <span class="spinner-grow m-auto" id="span1" style=" display: none;" ></span>
+  <p id="active_cases1"></p>
+  <p id="recovery1"></p>
+  <p id="deaths1"></p>
+ </div>
+ <div id="r2" class="coi-12 col-sm-4">
+  <h3>World Wide Today Cases : </h3>
+  <span class="spinner-grow m-auto" id="span2" style="display: none;" ></span>
+  <p id="active_cases2"></p>
+  <p id="recovery2"></p>
+  <p id="deaths2"></p>
+   </div>
+  </div>
+  </div>
+  <br><br>
+  <div class="container-fluid">
+    <div class="row justify-content-around">
+      <div id="r8" class="col-12 col-sm-4 ">
+  <h3>India Total Cases : </h3>
+  <span class="spinner-grow m-auto" id="span8" style=" display: none;" ></span>
+  <p id="active_cases8"></p>
+  <p id="recovery8"></p>
+  <p id="deaths8"></p>
+ </div>
+ <div id="r9" class="coi-12 col-sm-4">
+  <h3>India Today Cases : </h3>
+  <span class="spinner-grow m-auto" id="span9" style="display: none;" ></span>
+  <p id="active_cases9"></p>
+  <p id="recovery9"></p>
+  <p id="deaths9"></p>
+   </div>
+  </div>
+  </div>
+  <br><br>
+
+  <div class="container-fluid">
+    <div class="row justify-content-around">
+      <div class="col-12 col-sm-5">
+        <h1>Covid-19 Symptoms</h1>
+        <h4 style="height: 3px;width: 32%;background-color: red;margin-left: 10px;"></h4>
+        <br>
+        <p>The virus can cause a range of symptoms, ranging from mild illness to pneumonia. Symptoms of the disease are fever, cough, sore throat and headaches. In severe cases difficulty in breathing and deaths can occur.
+        <br><br>Signs and symptoms include respiratory symptoms and include fever, cough and shortness of breath. In more severe cases, infection can cause pneumonia, severe acute respiratory syndrome and sometimes death.
+<br><br>
+Standard recommendations to prevent the spread of COVID-19 include frequent cleaning of hands using alcohol-based hand rub or soap and water; covering the nose and mouth with a flexed elbow or disposable tissue when coughing and sneezing.</p>
+
+      </div>
+      <div class="col-12 col-sm-5">
+        <br><br>
+        <img src="symtoms1.png" class="img img-fluid">
+      </div>
+    </div>
+  </div>
+  <br><br>
+<br>
+
+  <div class="container-fluid">
+    <div class="row justify-content-around">
+      <div class="col-12 col-sm-5">
+        <h1>Covid-19 Precautions</h1>
+        <h4 style="height: 3px;width: 32%;background-color: red;margin-left: 10px;"></h4>
+        <br>
+        <img src="precautinos.jpg" class="img img-fluid mt-5">
+      </div>
+      <div class="col-12 col-sm-5">
+        
+        <br><br><br><br>
+        <p><i class="fa fa-hand-o-right mr-3"></i>Keep alcohol-based hand sanitizers out of children’s reach. Teach them how to apply the sanitizer and monitor its use.</p>
+       
+        <p><i class="fa fa-hand-o-right mr-3"></i>Apply a coin-sized amount on your hands. There is no need to use a large amount of the product.</p>
+        <p><i class="fa fa-hand-o-right mr-3"></i>Remember that washing your hands with soap and water is also effective against COVID-19.</p>
+        <p><i class="fa fa-hand-o-right mr-3"></i>Under no circumstance, drink or let children swallow an alcohol-based hand sanitizer. It can be poisonous. </p>
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+
+<br><br>
+<div class="container-fluid">
+    <div class="row justify-content-around">
+      
+      <div class="col-12 col-sm-5">
+        <h1>How it Spreads</h1>
+        <h4 style="height: 3px;width: 32%;background-color: red;margin-left: 10px;"></h4>
+        <br>
+        <br>
+        <p><i class="fa fa-hand-o-right mr-3"></i>People can catch COVID-19 from others who have the virus.</p>
+       
+        <p><i class="fa fa-hand-o-right mr-3"></i>he disease can spread from person to person through small droplets from the nose or mouth which are spread when a person with COVID-19 coughs or exhales.</p>
+        <p><i class="fa fa-hand-o-right mr-3"></i>These droplets land on objects and surfaces around the person.</p>
+        <p><i class="fa fa-hand-o-right mr-3"></i>There is no evidence that drinking lots of water flushes out the new coronavirus or the
+stomach acid kills the virus. </p>
+      </div>
+      <div class="col-12 col-sm-5">
+        <br><br>
+        <img src="how.jpg" class="img img-fluid mt-5">
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+  <div style="background-color: #f1abff;padding: 15px ;text-align: center;margin-bottom: 10px;" class="footer">
+    <p>All Rights Reserved <i class="fa fa-copyright"></i><br>--Developed by JAGAN--</p>
+  </div>
+
+
+</div>
+<script type="text/javascript">
+     var active1=document.getElementById("active_cases1");
+    var deaths1=document.getElementById("deaths1");
+    var recovery1=document.getElementById("recovery1");
+    var active2=document.getElementById("active_cases2");
+    var deaths2=document.getElementById("deaths2");
+    var recovery2=document.getElementById("recovery2");
+    var span1=document.getElementById('span1');
+    var span2=document.getElementById('span2');
+    var active8=document.getElementById("active_cases8");
+    var deaths8=document.getElementById("deaths8");
+    var recovery8=document.getElementById("recovery8");
+    var active9=document.getElementById("active_cases9");
+    var deaths9=document.getElementById("deaths9");
+    var span8=document.getElementById('span8');
+    var span9=document.getElementById('span9');
+    var recovery9=document.getElementById("recovery9");
+    span1.style.display="block";
+    span2.style.display="block";
+    span8.style.display="block";
+    span9.style.display="block";
+
+    
+
+      var url ='https://api.covid19api.com/summary';
+     
+      fetch(url).then((res)=>
+        res.json()
+).then((res)=>{
+   console.log(res);
+   console.log("world and country");
+  //console.log(res.Countries);
+  span1.style.display="none";
+  span2.style.display="none";
+        active1.innerHTML="Total Active cases : "+res.Global.TotalConfirmed;
+        active2.innerHTML="New Active cases : "+res.Global.NewConfirmed;
+        deaths1.innerHTML="Total Deaths : "+res.Global.TotalDeaths;
+        deaths2.innerHTML="New Deaths : "+res.Global.NewDeaths;
+        recovery1.innerHTML="Total recoverd cases : "+res.Global.TotalRecovered;
+        recovery2.innerHTML="New Recovered Cases : "+res.Global.NewRecovered;
+  
+
+   
+    });
+
+
+
+var url ='https://api.covid19api.com/summary';
+     
+      fetch(url).then((res)=>
+        res.json()
+).then((res)=>{
+  for(var i=0;i<res.Countries.length;i++){
+    console.log("india");
+  if(res.Countries[i].Country=="India"){
+  span8.style.display="none";
+  span9.style.display="none";
+        active8.innerHTML="Total Active cases : "+res.Countries[i].TotalConfirmed;
+        active9.innerHTML="New Active cases : "+res.Countries[i].NewConfirmed;
+        deaths8.innerHTML="Total Deaths : "+res.Countries[i].TotalDeaths;
+        deaths9.innerHTML="New Deaths : "+res.Countries[i].NewDeaths;
+        recovery8.innerHTML="Total recoverd cases : "+res.Countries[i].TotalRecovered;
+        recovery9.innerHTML="New Recovered Cases : "+res.Countries[i].NewRecovered;
+  }
+
+   }
+
+   
+    });
+
+
+
+
+
+</script>
+</body>
+</html>

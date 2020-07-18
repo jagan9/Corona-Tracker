@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Corona Tracker || services</title>
+    <meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="shortcut icon" href="11.png">
+  <link rel="shortcut icon" href="favicon.png">
+  <link rel="shortcut icon" href="fav(32).png">
+  <link rel="shortcut icon" href="fav(96).png">
+  <link rel="shortcut icon" href="fav(192).png">
+
+<meta name="keywords" content="corona by jagan, coronaweb, coronaweb by jagan, jagan coronaweb, corona, corona virus, corona virus web app">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+
+
+</head>
+<body>
+  <div class="container-fluid">
+    <div class="jumbotron text-center mb-0">
+	<h1>CORONA TRACKER</h1>
+  </div>
+  <div class="navbar navbar-expand-md  navbar-dark 
+  bg-dark justify-content-between">
+    <h1 class="navbar-brand text-danger">Corona</h1>
+    <button class="navbar-toggler " data-toggle="collapse" data-target="#mynavbar" >
+      <span class="navbar-toggler-icon " >
+      </span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end" id="mynavbar">
+    <ul class=" navbar-nav">
+      <li class="nav-item"><a class="nav-link" href="index.html"><i class="fa fa-home  mr-1" ></i>home</a></li>
+      <li class="nav-item"><a class="nav-link" href="cases.html"><i class="fas fa-virus  mr-1" ></i>Covid-cases</a></li>
+      <li class="nav-item"><a class="nav-link" href="contacts.html"><i class="fa fa-phone-alt mr-1" ></i>Help-line</a></li>
+      <li class="nav-item"><a class="nav-link active" href="#"><i class="fa fa-fa fa-graduation-cap  mr-1" ></i>State-Data</a></li>
+      
+    </ul>
+    </div>
+  </div>
+  <br><br>
+
+<div class="container">
+  
+  <div style="display: flex;flex-direction: row;">
+  <input type="text" id="inp" placeholder="enter state">
+  <button class="btn btn-primary ml-2" id="btn">check</button></div>
+  <p>Enter any state in India to get Hospital list.</p>
+  <br><br>
+  <h2>Admission-capcity and Hospital-beds in <span style="font-weight: bold;" id="tex"></span></h2>
+  <h4 style="height: 3px;width: 22%;background-color: red;"></h4>
+    <br><br>
+    <span style="justify-content: center;display: flex;margin: auto" id="span" class="spinner-border text-black "></span>
+    <div class="table-responsive">
+  <table style="display: none;" class="table table-striped table-hover" id="table">
+    <tr class="bg-dark text-white">
+      <th>state</th>
+      <th>city</th>
+      <th>name</th>
+      <th>ownership</th>
+      <th>admissionCapacity</th>
+      <th>hospitalBeds</th>
+    </tr>
+  </table>
+  </div>
+  <p style="display: none;" id="alrt" class="alert bg-danger m-auto"></p><br><br>
+  <p id="p" class="spinner-grow" style="display: none;" ></p>
+
+  <!-- //<p class="spinner-border"></p> -->
+
+</div>
+<br><br><br>
+  <div style="background-color: #f1abff;padding: 15px ;text-align: center;margin-bottom: 10px;" class="footer">
+    <p>All Rights Reserved <i class="fa fa-copyright"></i><br>--Developed by JAGAN--</p>
+  </div>
+</div>
+
+  
+  <script type="text/javascript">
+    window.addEventListener("load",()=>{
+    var inp=document.getElementById('inp');
+    var btn=document.getElementById('btn');
+    var table=document.getElementById('table');
+    var p=document.getElementById('p');
+    var alrt=document.getElementById("alrt");
+    var tex=document.getElementById("tex");
+     
+
+     btn.addEventListener("click",()=>{
+      table.style.display="none";
+      p.style.display="block";
+      var q=0;
+          if(inp.value){
+
+            fetch('https://api.rootnet.in/covid19-in/hospitals/medical-colleges')
+        .then((res)=>res.json())
+        .then((res)=>{
+          console.log(res.data.medicalColleges);
+          var j=res.data.medicalColleges;
+          var u=0;
+          for(var i=0;i<j.length;i++){
+            if(inp.value.toLowerCase()==j[i].state.toLowerCase()){
+              u++;
+              table.style.display="block";
+              var row=table.insertRow(u);
+
+              var cell1=row.insertCell(0);
+              var cell2=row.insertCell(1);
+              var cell3=row.insertCell(2);
+              var cell4=row.insertCell(3);
+              var cell5=row.insertCell(4);
+              var cell6=row.insertCell(5);
+
+              tex.innerHTML=j[i].state;
+              cell1.innerHTML=j[i].state;
+              cell2.innerHTML=j[i].city;
+              cell3.innerHTML=j[i].name;
+              cell4.innerHTML=j[i].ownership;
+              cell5.innerHTML=j[i].admissionCapacity;
+              cell6.innerHTML=j[i].hospitalBeds;
+
+              
+
+             q++;
+             p.style.display="none";
+             table.style.display="block";
+
+            }
+            if(q==1){
+              var t;
+            }
+            else{
+
+              alrt.style.display="block";
+              alrt.innerHTML="not valid";
+              p.style.display="none";
+              setTimeout(()=>{
+                alrt.style.display="none"
+              },3000);
+            }
+          }
+
+
+
+
+           });
+
+          }
+          else{
+           // p.style.display="none";
+            alrt.style.display="block";
+              alrt.innerHTML="please enter feild";
+              setTimeout(()=>{
+                alrt.style.display="none"
+              },3000);
+          }
+
+
+       
+
+
+
+     });
+      })
+
+
+
+    fetch('https://api.rootnet.in/covid19-in/hospitals/medical-colleges')
+        .then((res)=>res.json())
+        .then((res)=>{
+          console.log(res.data.medicalColleges);
+          var j=res.data.medicalColleges;
+          var u=0;
+          tex.innerHTML="Telangana";
+          document.getElementById("span").style.display="none";
+          for(var i=0;i<j.length;i++){
+            if("telangana"==j[i].state.toLowerCase()){
+              u++;
+              table.style.display="block";
+              var row=table.insertRow(u);
+
+              var cell1=row.insertCell(0);
+              var cell2=row.insertCell(1);
+              var cell3=row.insertCell(2);
+              var cell4=row.insertCell(3);
+              var cell5=row.insertCell(4);
+              var cell6=row.insertCell(5);
+
+              cell1.innerHTML=j[i].state;
+              cell2.innerHTML=j[i].city;
+              cell3.innerHTML=j[i].name;
+              cell4.innerHTML=j[i].ownership;
+              cell5.innerHTML=j[i].admissionCapacity;
+              cell6.innerHTML=j[i].hospitalBeds;
+             
+             p.style.display="none";
+
+            }
+            }
+          });
+  </script>
+</body>
+</html>
