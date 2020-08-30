@@ -124,10 +124,10 @@
 			var twi=document.getElementById("twi");
 			var fac=document.getElementById("fac");
 
-			fetch('https://api.rootnet.in/covid19-in/contacts')
+	 fetch('https://api.rootnet.in/covid19-in/contacts')
         .then((res)=>res.json())
         .then((res)=>{
-        	console.log(res.data.contacts);
+        	
           document.getElementById("span3").style.display="none";
           table.style.visibility= "unset";
           document.getElementById("span").style.display="none";
