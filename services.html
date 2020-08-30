@@ -180,7 +180,6 @@
     fetch('https://api.rootnet.in/covid19-in/hospitals/medical-colleges')
         .then((res)=>res.json())
         .then((res)=>{
-          console.log(res.data.medicalColleges);
           var j=res.data.medicalColleges;
           var u=0;
           tex.innerHTML="Telangana";
