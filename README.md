@@ -6,5 +6,5 @@ This is designed using Bootstrap. And it also uses some what javascript. In this
 <img src="https://coronaweb.netlify.app/symtoms1.png" height="400px" alt="image" />
  </div>
 <br/>
-# Live Website
+## Live Website
 [Website link](https://coronaweb.netlify.app/symtoms1.png)
