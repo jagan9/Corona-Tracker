@@ -5,7 +5,3 @@ This is designed using Bootstrap. And it also uses some what javascript. In this
 # Live Website
 [Website link](https://coronaweb.netlify.app/symtoms1.png)
 
-<div style={text-align="center"}>
-<img src="https://coronaweb.netlify.app/symtoms1.png" height="400px" alt="image" />
- </div>
-<br/>
